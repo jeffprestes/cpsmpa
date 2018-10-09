@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 06 - Array, Loop For & Functions</title>
+</head>
+<body>
+    <div id="resultado"></div>
+    <script>
+        //ARRAY é uma variavel que contem varios valores de um mesmo tipo/categoria
+        var sudeste = ["SP", "RJ", "MG", "ES"];
+
+        var texto;
+        var i;
+
+        //LOOP
+        //FOR
+        //Usado quando é necessário fazer varias tarefas repetidas 
+        for (i=0; i<sudeste.length; i++) {
+            texto = texto + "Estado: " + sudeste[i] + "<br>";
+        }
+
+        document.getElementById("resultado").innerHTML = texto;
+    
+
+        //FUNCTION são funções que realizam cálculo ou ações que podem ser usadas em varios locais 
+        //diferentes dos programas
+        function nomeDoEstado(sigla) {
+            if (sigla=="SP") {
+                return "São Paulo";
+            } else if (sigla=="RJ") {
+                return "Rio de Janeiro";
+            } else if (sigla=="MG") {
+                return "Minas Gerais";
+            } else if (sigla=="ES") {
+                return "Espirito Santo";
+            } else {
+                return "Não conheço esse Estado";
+            }  
+        }
+    </script>
+</body>
+</html>
