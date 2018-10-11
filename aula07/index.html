@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Formulário Votação</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <h1>Votação</h1>
+    <form action="#" id="formVotacao" name="formVotacao">
+        <div>
+            <label for="nroCotas">Cotas a serem aumentadas 💰 </label>: 
+            <input type="text" name="nroCotas" id="nroCotas">
+        </div>
+        <div>
+            <label for="pauta1">Aceita a pauta numero 1</label>: 
+            <select name="pauta1" id="pauta1">
+                <option value="" selected></option>
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+            </select>
+        </div>
+        <div id="divBotao">
+            <button onclick="computarVoto()"> Votar </button>
+        </div>
+    </form>
+    <div id="seuVoto"></div>
+    <script src="script.js"></script>
+</body>
+</html>
