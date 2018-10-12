@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>Votação</h1>
-    <form action="#" id="formVotacao" name="formVotacao">
+    <form id="formVotacao" name="formVotacao">
         <div>
             <label for="nroCotas">Cotas a serem aumentadas 💰 </label>: 
             <input type="text" name="nroCotas" id="nroCotas">
@@ -23,7 +23,7 @@
             </select>
         </div>
         <div id="divBotao">
-            <button onclick="computarVoto()"> Votar </button>
+            <button onclick="computarVoto(); return false;"> Votar </button>
         </div>
     </form>
     <div id="seuVoto"></div>
