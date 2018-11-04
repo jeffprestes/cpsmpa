@@ -1,9 +1,9 @@
-var conta;
+var contaUsuario;
 //Checa a cada 2 segundos se a conta Ethereum foi alterada no Metamask
 $(document).ready(async () => {
     setInterval(() => {
         if (web3.eth.accounts[0] !== this.conta) {
-            conta = web3.eth.accounts[0];
+            contaUsuario = web3.eth.accounts[0];
         }
         checkWeb3();
     }, 2000)
