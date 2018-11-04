@@ -63,8 +63,10 @@ var contratoUsoDeImagem = web3.eth.contract(contratoUsoDeImagemABI).at("0xcb5eb5
 function obtemNomeEmpresa() {
     contratoUsoDeImagem.methods.nomeEmpresa.call({from: contaUsuario, gas: 3000000, value: 0}, function (err, resultado) {
         if (err)    {
+            console.log("Erro");
             console.error(err);
         } else {
+            console.log("Resultado");
             let objStatus = document.getElementById("spanNomeEmpresa");
             console.log(resultado);
             objStatus.innerText = resultado;
