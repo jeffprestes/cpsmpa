@@ -66,6 +66,7 @@ function obtemNomeEmpresa() {
             console.error(err);
         } else {
             let objStatus = document.getElementById("spanNomeEmpresa");
+            console.log(resultado);
             objStatus.innerText = resultado;
         }
     });
