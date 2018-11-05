@@ -1,13 +1,21 @@
 var contaUsuario;
-//Checa a cada 2 segundos se a conta Ethereum foi alterada no Metamask
-$(document).ready(async () => {
-    setInterval(() => {
-        if (web3.eth.accounts[0] !== this.conta) {
+
+// Verifica a conexão Web3 e a conta do usuario
+function verificaConta() {
+    // Verifica o status da conexão 
+    if (web3 && web3.isConnected()) {
+        if (web3.eth.accounts[0] == undefined)  {
+            console.info('Não esta conectado ao Metamask');
+            $('#statusConexao').text('Desconectado');  
+        }  else {
+            console.info('Conectado. Qual versão da lib Web3 foi injetado pelo Metamask? ' + web3.version.api);
             contaUsuario = web3.eth.accounts[0];
+            $('#statusConexao').text('Conectado a conta ' + contaUsuario);  
         }
-        checkWeb3();
-    }, 2000)
-});
+    } else {
+        $('#statusConexao').text('Desconectado');
+    }
+}
 
 window.addEventListener('load', async (event) => {
     // Navegadores com novo Metamask    
@@ -27,21 +35,5 @@ window.addEventListener('load', async (event) => {
     } else { // 
         alert('Para utilizar os nossos serviços você precisa instalar o Metamask. Por favor, visite: metamask.io');
     }
-    checkWeb3()
+    verificaConta();
 });
-
-// Verifica a conexão Web3
-function checkWeb3() {
-    // Verifica o status da conexão 
-    if (web3 && web3.isConnected()) {
-        if (web3.eth.accounts[0] == undefined)  {
-            console.info('Não esta conectado ao Metamask');
-            $('#statusConexao').text('Desconectado');  
-        }  else {
-            console.info('Conectado. Qual versão da lib Web3 foi injetado pelo Metamask? ' + web3.version.api);
-            $('#statusConexao').text('Conectado a conta ' + web3.eth.accounts[0]);  
-        }
-    } else {
-        $('#statusConexao').text('Desconectado');
-    }
-}
