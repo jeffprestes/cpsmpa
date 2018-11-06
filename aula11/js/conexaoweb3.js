@@ -1,15 +1,16 @@
 var contaUsuario;
+var conexaoComEthereum;
 
 // Verifica a conexão Web3 e a conta do usuario
 function verificaConta() {
     // Verifica o status da conexão 
-    if (web3 && web3.isConnected()) {
-        if (web3.eth.accounts[0] == undefined)  {
+    if (conexaoComEthereum && conexaoComEthereum.isConnected()) {
+        if (conexaoComEthereum.eth.accounts[0] == undefined)  {
             console.info('Não esta conectado ao Metamask');
             $('#statusConexao').text('Desconectado');  
         }  else {
-            console.info('Conectado. Qual versão da lib Web3 foi injetado pelo Metamask? ' + web3.version.api);
-            contaUsuario = web3.eth.accounts[0];
+            console.info('Conectado. Qual versão da lib Web3 foi injetado pelo Metamask? ' + conexaoComEthereum.version.api);
+            contaUsuario = conexaoComEthereum.eth.accounts[0];
             $('#statusConexao').text('Conectado a conta ' + contaUsuario);  
         }
     } else {
@@ -20,7 +21,7 @@ function verificaConta() {
 window.addEventListener('load', async (event) => {
     // Navegadores com novo Metamask    
     if (window.ethereum) {
-        window.web3 = new Web3(ethereum);
+        conexaoComEthereum = new Web3(ethereum);
         try {
             // Solicita acesso a carteira Ethereum se necessário
             await ethereum.enable()
@@ -31,7 +32,7 @@ window.addEventListener('load', async (event) => {
             $('#statusConexao').text('Desconectado');
         }
     } else if (window.web3) { // Navegadores DApp antigos
-        window.web3 = new Web3(web3.currentProvider)
+        conexaoComEthereum = new Web3(web3.currentProvider)
     } else { // 
         alert('Para utilizar os nossos serviços você precisa instalar o Metamask. Por favor, visite: metamask.io');
     }
