@@ -1,5 +1,4 @@
 var contaUsuario;
-var conexaoComEthereum;
 
 // Verifica a conexão Web3 e a conta do usuario
 function verificaConta() {
