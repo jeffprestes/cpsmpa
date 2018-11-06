@@ -20,7 +20,7 @@ function verificaConta() {
 window.addEventListener('load', async (event) => {
     // Navegadores com novo Metamask    
     if (window.ethereum) {
-        conexaoComEthereum = new Web3(ethereum);
+        window.conexaoComEthereum = new Web3(ethereum);
         try {
             // Solicita acesso a carteira Ethereum se necessário
             await ethereum.enable()
@@ -31,7 +31,7 @@ window.addEventListener('load', async (event) => {
             $('#statusConexao').text('Desconectado');
         }
     } else if (window.web3) { // Navegadores DApp antigos
-        conexaoComEthereum = new Web3(web3.currentProvider)
+        window.conexaoComEthereum = new Web3(web3.currentProvider)
     } else { // 
         alert('Para utilizar os nossos serviços você precisa instalar o Metamask. Por favor, visite: metamask.io');
     }
