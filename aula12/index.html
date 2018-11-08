@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Direito de Uso de Produção Artística</title>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1>Página de gestão de direitos artísticos de: <span id="spanNomeEmpresa"></span></h1>
+        </div>
+        <div id="statusConexao"></div>
+        <hr>
+        <div>
+            <form action="#" id="formNomeEmpresa" name="formNomeEmpresa">
+                <div>
+                    Nome da empresa:
+                </div>
+                <div>
+                    <input type="text" name="campoNomeEmpresa" id="campoNomeEmpresa" size="100">
+                </div>
+                <div>
+                    <button onclick="registrarNomeEmpresa(); return false;"> Registrar no Blockchain </button>
+                </div>
+            </form>
+            <div id="statusTransacaoNomeEmpresa"></div>
+        </div>
+    </div>
+    <script src="js/conexaoweb3.js"></script>
+    <script src="js/usodeimagem.js"></script>
+    <script>
+        obtemNomeEmpresa();
+    </script>
+</body>
+</html>
