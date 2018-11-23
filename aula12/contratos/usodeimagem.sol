@@ -3,7 +3,7 @@ pragma solidity 0.4.25;
 contract UsoDeImagem {
 	
     string public nomeEmpresa;
-    address agente;
+    address public agente;
     address artista;
 	
     modifier somenteArtista() {
