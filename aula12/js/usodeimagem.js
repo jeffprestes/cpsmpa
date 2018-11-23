@@ -58,7 +58,7 @@ const contratoUsoDeImagemABI = [
 	}
 ];
 
-var contratoUsoDeImagem = web3.eth.contract(contratoUsoDeImagemABI).at("0x9d00df94db52803bf0fcdb248dd4db3bb25f0296");
+var contratoUsoDeImagem = web3.eth.contract(contratoUsoDeImagemABI).at("0x30897c117a0b50eae130c1c948e07015e2accf2e");
 
 function obtemNomeEmpresa() {
     contratoUsoDeImagem.nomeEmpresa({from: contaUsuario, gas: 3000000, value: 0}, function (err, resultado) {
@@ -94,8 +94,9 @@ function registrarNomeEmpresa() {
 
 function pagar() {
 	var statusTransacao = document.getElementById("statusTransacaoPagamento");
-	var valorAPagar = (document.formNomeEmpresa.campoValorAPagar.value*12);
+	var valorAPagar = (document.formPagamento.campoValorAPagar.value*1000000000000);
 	statusTransacao.innerHTML = "Enviando transação. Por favor monitore seu Metamask.";
+	console.log("valor enviado: " + valorAPagar);
 	contratoUsoDeImagem.receberPeloUso({from: contaUsuario, gas: 3000000, value: valorAPagar}, function (err, resultado) {
         if (err)    {
             console.log("Erro");
